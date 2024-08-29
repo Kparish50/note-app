@@ -1,5 +1,4 @@
-export default function Notes({ notes }) {
-
+export default function Note({ notes }) {
   return (
     <ul>
       {notes.map((note, index) => (

@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 
+export default function NoteForm({ addNote }) {
+  const [noteTitle, setNoteTitle] = useState('');
+  const [noteText, setNoteText] = useState('');
 
-export default function WriteNotes({ addNote }) {
-    const [ noteTitle, setNoteTitle ] = useState('');
-    const [ noteText, setNoteText ] = useState('');
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        addNote({ noteTitle, noteText });
-        setNoteTitle('')
-        setNoteText('')
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addNote({ noteTitle, noteText });
+    setNoteTitle('');
+    setNoteText('');
+  };
 
   return (
     <div>

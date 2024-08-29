@@ -1,9 +1,7 @@
 import './App.css';
 import React, { useState} from 'react';
-import Notes from './components/Notes.jsx';
-import WriteNotes from './components/WriteNotes.jsx';
-
-
+import NoteForm from './components/NoteForm';
+import Note from './components/Note';
 
 function App() {
   const [ notes, setNotes ] = useState([]);
@@ -15,8 +13,8 @@ function App() {
   return (
     <div className="App">
       <h1>Note App</h1>
-     <WriteNotes addNote={addNote}/>
-     <Notes notes={notes}/>
+     <NoteForm addNote={addNote}/>
+     <Note notes={notes}/>
     </div>
   );
 }
