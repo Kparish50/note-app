@@ -1,32 +1,19 @@
-import React, { useState } from 'react';
 
-export default function NoteForm({ addNote }) {
-  const [noteTitle, setNoteTitle] = useState('');
-  const [noteText, setNoteText] = useState('');
+import AddNote from './AddNote';
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    addNote({ noteTitle, noteText });
-    setNoteTitle('');
-    setNoteText('');
-  };
+export default function NoteForm({ notes, handleAddNote, handleDeleteNote }) {
 
-  return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Note Title"
-          value={noteTitle}
-          onChange={(e) => setNoteTitle(e.target.value)}
-        />
-        <textarea
-          placeholder="Note Text"
-          value={noteText}
-          onChange={(e) => setNoteText(e.target.value)}
-        />
-        <button type="submit">Add Note</button>
-      </form>
-    </div>
-  );
+    return (
+      <div className="notes-list">
+        {notes.map((note) => (
+          <
+            id={note.id}
+            title={note.title}
+            text={note.text}
+            handleDeleteNote={handleDeleteNote}
+          />
+        ))}
+        <AddNote handleAddNote={handleAddNote} />
+      </div>
+    );
 }

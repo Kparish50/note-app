@@ -1,22 +1,34 @@
 import './App.css';
+import { nanoid } from 'nanoid';
 import React, { useState} from 'react';
 import NoteForm from './components/NoteForm';
-import Note from './components/Note';
 
 function App() {
-  const [ notes, setNotes ] = useState([]);
 
-  const addNote = (newNote) => {
-    setNotes([...notes, newNote]);
+  const [ notes, setNotes ] = useState([ { id: nanoid(), title: '', text: ''} ]);
+
+
+  const addNote = (text) => {
+    const newNote = { id: nanoid(), title: text, text: text };
+    const newNotes = [...notes, newNote];
+    setNotes(newNotes);
+  }
+
+  const deleteNote = (id) => {
+    const newNotes = notes.filter((note) => note.id !== id);
+    setNotes(newNotes);
   }
 
   return (
-    <div className="App">
-      <h1>Note App</h1>
-     <NoteForm addNote={addNote}/>
-     <Note notes={notes}/>
+    <div>
+      <div>
+        <NoteForm
+          handleAddNote={addNote}
+          handleDeleteNote={deleteNote}
+        />
+      </div>
     </div>
-  );
+  )
 }
 
 export default App;
