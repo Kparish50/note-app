@@ -3,7 +3,7 @@ export default function Note({ id, title, text, handleDeleteNote }) {
     <div>
       <h1>{title}</h1>
       <p>{text}</p>
-      <button>X</button>
+      <button onClick={() => handleDeleteNote(id)}>X</button>
     </div>
   );
 }

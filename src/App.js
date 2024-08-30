@@ -9,19 +9,27 @@ function App() {
     text: "Test for note"
   }])
 
-  const addNote = (text, title) => {
+  const addNote = (title, text) => {
     const newNote = {
       id: nanoid(),
       title: title,
-      test: text
+      text: text
     }
     const newNotes = [...notes, newNote]
     setNotes(newNotes)
   }
 
+  const deleteNote = (id) => { 
+    const newNotes = notes.filter((note) => note.id !== id);
+    setNotes(newNotes)
+  }
+
   return (
     <div>
-      <NoteForm notes={notes} handleAddNote={addNote}/>
+      <NoteForm 
+      notes={notes} 
+      handleAddNote={addNote}
+      handleDeleteNote={deleteNote}/>
     </div>
   );
 }
