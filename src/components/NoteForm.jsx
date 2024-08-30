@@ -1,20 +1,13 @@
 import Note from './Note';
 import AddNote from './AddNote';
 
-export default function NoteForm({ notes, handleAddNote, handleDeleteNote }) {
-    console.log(notes)
+export default function NoteForm({ notes, handleAddNote,  }) {
+
     return (
-      <div className="notes-list">
-        {notes.map((note, index) => (<di>
-          <Note
-            key={index}
-            id={note.id}
-            title={note.title}
-            text={note.text}
-            handleDeleteNote={handleDeleteNote}
-          />
-        </di>
-        ))}
+      <div>
+        {notes.map((note) => (
+          <Note id={note.id} title={note.title} text={note.text}/>
+          ))}
         <AddNote handleAddNote={handleAddNote} />
       </div>
     );
