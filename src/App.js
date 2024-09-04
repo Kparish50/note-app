@@ -1,19 +1,21 @@
 import { nanoid } from 'nanoid';
 import React, { useState} from 'react';
-import NoteForm from './components/NoteForm';
+import NotePage from './components/NotePage';
 
 function App() {
   const [ notes, setNotes ] = useState([{ 
     id: nanoid(),
-    title: "Test",
-    text: "Test for note"
+    title: "",
+    text: "",
+    // color: ""
   }])
 
   const addNote = (title, text) => {
     const newNote = {
       id: nanoid(),
       title: title,
-      text: text
+      text: text,
+      // color: color
     }
     const newNotes = [...notes, newNote]
     setNotes(newNotes)
@@ -26,7 +28,8 @@ function App() {
 
   return (
     <div>
-      <NoteForm 
+      <h1>Make Some Notes</h1>
+      <NotePage
       notes={notes} 
       handleAddNote={addNote}
       handleDeleteNote={deleteNote}/>
