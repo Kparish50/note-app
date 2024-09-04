@@ -7,7 +7,6 @@ function App() {
     id: nanoid(),
     title: "",
     text: "",
-    // color: ""
   }])
 
   const addNote = (title, text) => {
@@ -15,7 +14,6 @@ function App() {
       id: nanoid(),
       title: title,
       text: text,
-      // color: color
     }
     const newNotes = [...notes, newNote]
     setNotes(newNotes)
