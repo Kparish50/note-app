@@ -1,6 +1,7 @@
 import { nanoid } from 'nanoid';
 import React, { useState} from 'react';
 import NotePage from './components/NotePage';
+import Note from './components/Note';
 
 function App() {
   const [ notes, setNotes ] = useState([{ 
@@ -28,9 +29,17 @@ function App() {
     <div>
       <h1>Make Some Notes</h1>
       <NotePage
-      notes={notes} 
-      handleAddNote={addNote}
-      handleDeleteNote={deleteNote}/>
+        notes={notes}
+        handleAddNote={addNote}
+      />
+      {notes.map((note) => (
+        <Note
+          id={note.id}
+          title={note.title}
+          text={note.text}
+          handleDeleteNote={deleteNote}
+        />
+      ))}
     </div>
   );
 }

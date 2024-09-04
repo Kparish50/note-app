@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import Note from './Note';
 
 
 
 
-export default function NotePage({ notes, handleAddNote, handleDeleteNote }) {
+export default function NotePage({ handleAddNote }) {
   const styles = {
     green: {
       color: '#018749',
@@ -83,16 +82,6 @@ export default function NotePage({ notes, handleAddNote, handleDeleteNote }) {
             </option>
           </select>
           <button onClick={handleSubmit}>Submit</button>
-        </div>
-        <div>
-          {notes.map((note) => (
-            <Note
-              id={note.id}
-              title={note.title}
-              text={note.text}
-              handleDeleteNote={handleDeleteNote}
-            />
-          ))}
         </div>
       </>
     );
