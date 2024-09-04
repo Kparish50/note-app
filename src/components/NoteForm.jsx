@@ -4,7 +4,6 @@ export default function NoteForm({ handleAddNote }) {
 
   const [noteTitle, setNoteTitle] = useState('');
   const [noteText, setNoteText] = useState('');
-  const [backgroundColor, setBackgroundColor] = useState('green');
 
   const handleChangeTitle = (e) => {
     setNoteTitle(e.target.value);
@@ -14,25 +13,12 @@ export default function NoteForm({ handleAddNote }) {
     setNoteText(e.target.value);
   };
 
-  const handleChangeColor = (e) => {
-    if (backgroundColor === "green") {
-      setBackgroundColor(e.target.value);
-    } else if (backgroundColor === "yellow") {
-      setBackgroundColor(e.target.value);
-    } else if (backgroundColor === "red") {
-      setBackgroundColor(e.target.value);
-    } else {
-      return
-    }
-  }
-
   const handleSubmit = (e) => {
     e.preventDefault()
     if (noteTitle.trim().length && noteText.trim().length > 0) {
-      handleAddNote(noteTitle, noteText, backgroundColor);
+      handleAddNote(noteTitle, noteText);
       setNoteTitle('')
       setNoteText('')
-      setBackgroundColor('');
     }
   };
 
@@ -54,8 +40,8 @@ export default function NoteForm({ handleAddNote }) {
             className="selectColor"
             id="select"
             name="select"
-            value={backgroundColor}
-            onChange={handleChangeColor}
+            // value={backgroundColor}
+            // onChange={handleChangeColor}
           >
             <option
               className="green"

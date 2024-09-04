@@ -4,7 +4,9 @@ import NoteForm from './components/NoteForm';
 import Note from './components/Note';
 
 function App() {
-  const [ notes, setNotes ] = useState([ ])
+  const [ notes, setNotes ] = useState([ ]);
+  const [backgroundColor, setBackgroundColor] = useState('green');
+  
 
   const addNote = (title, text) => {
     const newNote = {
@@ -21,12 +23,25 @@ function App() {
     setNotes(newNotes)
   }
 
+  const changeColor = (e) => {
+    if (backgroundColor === 'green') {
+      setBackgroundColor(e.target.value);
+    } else if (backgroundColor === 'yellow') {
+      setBackgroundColor(e.target.value);
+    } else if (backgroundColor === 'red') {
+      setBackgroundColor(e.target.value);
+    } else {
+      return;
+    }
+  };
+
   return (
     <div>
       <h1>Make Some Notes</h1>
       <NoteForm
         notes={notes}
         handleAddNote={addNote}
+        handleChangeColor={changeColor}
       />
       {notes.map((note) => (
         <Note
