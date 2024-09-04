@@ -1,24 +1,10 @@
 import { useState } from 'react';
 
-
-
-
-export default function NotePage({ handleAddNote }) {
-  const styles = {
-    green: {
-      color: '#018749',
-    },
-    yellow: {
-      color: '#FFFF00',
-    },
-    red: {
-      color: '#CC0000',
-    },
-  };
+export default function NoteForm({ handleAddNote }) {
 
   const [noteTitle, setNoteTitle] = useState('');
   const [noteText, setNoteText] = useState('');
-  const [backgroundColor, setBackgroundColor] = useState('');
+  const [backgroundColor, setBackgroundColor] = useState('green');
 
   const handleChangeTitle = (e) => {
     setNoteTitle(e.target.value);
@@ -29,11 +15,11 @@ export default function NotePage({ handleAddNote }) {
   };
 
   const handleChangeColor = (e) => {
-    if (backgroundColor === 'green') {
+    if (backgroundColor === "green") {
       setBackgroundColor(e.target.value);
-    } else if (backgroundColor === 'yellow') {
+    } else if (backgroundColor === "yellow") {
       setBackgroundColor(e.target.value);
-    } else if (backgroundColor === 'red') {
+    } else if (backgroundColor === "red") {
       setBackgroundColor(e.target.value);
     } else {
       return
@@ -71,13 +57,25 @@ export default function NotePage({ handleAddNote }) {
             value={backgroundColor}
             onChange={handleChangeColor}
           >
-            <option className="green" style={styles.green} value="green">
+            <option
+              className="green"
+              style={{ backgroundColor: '#018749' }}
+              value="green"
+            >
               TODO: Whenever
             </option>
-            <option className="yellow" style={styles.yellow} value="yellow">
+            <option
+              className="yellow"
+              style={{ backgroundColor: '#FFFF00' }}
+              value="yellow"
+            >
               TODO: Tomorrow
             </option>
-            <option className="red" style={styles.red} value="red">
+            <option
+              className="red"
+              style={{ backgroundColor: '#CC0000' }}
+              value="red"
+            >
               TODO: RIGHT NOW
             </option>
           </select>
