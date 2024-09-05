@@ -13,9 +13,11 @@ function App() {
       id: nanoid(),
       title: title,
       text: text,
+      backgroundColor: backgroundColor
     }
     const newNotes = [...notes, newNote]
     setNotes(newNotes)
+    console.log(newNote);
   }
 
   const deleteNote = (id) => { 
@@ -34,12 +36,14 @@ function App() {
       return;
     }
   };
+console.log(backgroundColor)
 
   return (
     <div>
       <h1>Make Some Notes</h1>
       <NoteForm
         notes={notes}
+        backgroundColor={backgroundColor}
         handleAddNote={addNote}
         handleChangeColor={changeColor}
       />
@@ -48,6 +52,7 @@ function App() {
           id={note.id}
           title={note.title}
           text={note.text}
+          backgroundColor={note.backgroundColor}
           handleDeleteNote={deleteNote}
         />
       ))}
