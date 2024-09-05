@@ -17,7 +17,6 @@ function App() {
     }
     const newNotes = [...notes, newNote]
     setNotes(newNotes)
-    console.log(newNote);
   }
 
   const deleteNote = (id) => { 
@@ -36,7 +35,6 @@ function App() {
       return;
     }
   };
-console.log(backgroundColor)
 
   return (
     <div>

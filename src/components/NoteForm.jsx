@@ -16,11 +16,8 @@ export default function NoteForm({ backgroundColor, handleAddNote, handleChangeC
     e.preventDefault();
     if (noteTitle.trim().length && noteText.trim().length > 0) {
       handleAddNote(noteTitle, noteText);
-      handleChangeColor(backgroundColor)
       setNoteTitle('');
       setNoteText('');
-
-      console.log(handleChangeColor);
     }
   };
 
