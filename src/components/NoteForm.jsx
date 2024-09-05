@@ -23,7 +23,7 @@ export default function NoteForm({ backgroundColor, handleAddNote, handleChangeC
 
   return (
     <>
-      <div style={{ backgroundColor: backgroundColor }}>
+      <div className="noteForm" style={{ backgroundColor: backgroundColor }}>
         <textarea
           value={noteTitle}
           onChange={handleChangeTitle}
@@ -36,7 +36,7 @@ export default function NoteForm({ backgroundColor, handleAddNote, handleChangeC
         ></textarea>
         <label htmlFor="select"></label>
         <select
-          className="selectColor"
+          className="select-color"
           id="select"
           name="select"
           value={backgroundColor}
@@ -64,7 +64,7 @@ export default function NoteForm({ backgroundColor, handleAddNote, handleChangeC
             TODO: RIGHT NOW
           </option>
         </select>
-        <button onClick={handleSubmit}>Submit</button>
+        <button className="submit" onClick={handleSubmit}>Submit</button>
       </div>
     </>
   );

@@ -37,8 +37,8 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>Make Some Notes</h1>
+    <div className="container">
+      <h1 className="header">Make Some Notes</h1>
       <NoteForm
         notes={notes}
         backgroundColor={backgroundColor}
